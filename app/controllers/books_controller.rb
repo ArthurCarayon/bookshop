@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ show index ]
-  ## a quoi sert le %i
+  ## a quoi sert le %i > ca permet de dire que l'array est remplie de symbols
   before_action :auth_owner, only: %i[ edit update destroy ]
 
   # GET /books or /books.json

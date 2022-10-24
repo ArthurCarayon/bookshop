@@ -1,4 +1,6 @@
-hello
+<h1>Account Index</h1>
 
-<%= @users %>
-<%= render "form", user: @user %>
+<% @users.each do |user| %>
+    <%= link_to user.firstname, account_path(user) %> 
+<% end %>
+
