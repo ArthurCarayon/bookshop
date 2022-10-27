@@ -19,6 +19,10 @@
         <%= form.label :password_confirmation, style: "display: block" %>
         <%= form.password_field :password_confirmation %>
     </div>
+    <div>
+        <%= form.label :avatar, style: "display: block" %>
+        <%= form.file_field :avatar %>
+    </div>
 
     <div>
         <%= form.submit %>

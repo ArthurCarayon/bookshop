@@ -1,0 +1,6 @@
+<%= image_tag @user.avatar.variant(resize_to_limit: [200, 200]) %> <br><br>
+
+
+<%= link_to "Editer", edit_account_path(@user) %> <br>
+<%= link_to "Delete", account_path(@user), method: :delete, data:{ turbo_method: :delete, turbo_confirm: "Your account is deleted" } %> 
+<br><br><br>

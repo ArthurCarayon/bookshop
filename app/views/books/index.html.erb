@@ -9,6 +9,20 @@
       <%= link_to "Show this book", book %>
     </p>
   <% end %>
+  <%= paginate @books %>
 </div>
+
+<div class="search">
+  <%= render "search" %>
+</div>
+
+<% if @booksResult %>
+  <div class="result">
+    <h3>Results:</h3>
+    <% @booksResult.each do |result| %>
+      <p>Titre : <%= result.title %></p>
+    <% end %>
+  </div>
+<% end %>
 
 <%= link_to "New book", new_book_url %>

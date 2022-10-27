@@ -6,7 +6,14 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = Book.order(:title).page params[:page]
+
+    if params[:q].blank?
+      @q = Book.none.ransack(params[:q])
+    else
+      @q = Book.ransack(params[:q])
+    end
+    @booksResult = @q.result(distinct: true)
   end
 
   # GET /books/1 or /books/1.json
@@ -24,7 +31,7 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
-    @book = Book.new(book_params)
+    @book = Book.new(book_params.merge(user: current_user))
 
     respond_to do |format|
       if @book.save
@@ -68,7 +75,7 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :description, :isbn)
+      params.require(:book).permit(:title, :description, :isbn, :thumbnail)
     end
 
     ## SO 

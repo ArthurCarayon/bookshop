@@ -8,9 +8,12 @@
 require 'faker'
 
 ## needehlp comment creer plusieurs users avec pour chaque des livres
-
+admin = false
 3.times.each do |i| 
-    User.create!(email: "user#{i}@example.org", firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, password: "books123456", password_confirmation: "books123456")
+    if i == 2
+        admin = true
+    end
+    User.create!(email: "user#{i}@example.org", firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, password: "books123456", password_confirmation: "books123456", admin: admin)
 end
 
 User.all.find_each do |user| 

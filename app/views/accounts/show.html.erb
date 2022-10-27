@@ -1,7 +1,0 @@
-<h1>Show account</h1>
-<%= @user.firstname %>
-
-<% if @user == current_user %>
-    <%= link_to "Editer", edit_account_path %>
-    <%= link_to "Delete", account_path(@user), method: :delete, data:{ turbo_method: :delete, turbo_confirm: "Your account is deleted" } %> 
-<% end %>
