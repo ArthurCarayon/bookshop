@@ -1,30 +1,31 @@
 class AccountsController < ApplicationController
 
     def index
-        @user = current_user        
+      @user = current_user        
     end
 
     def show
-        if(params[:id])
-          @user = User.find(params[:id])
-        else
-          @user = current_user
-        end
-        @books = Book.where(:user_id => @user.id).order(:title).page params[:page]
-        authorize @user
+      if(params[:id])
+        @user = User.find(params[:id])
+      else
+        @user = current_user
+      end
+      @books = Book.where(:user_id => @user.id).order(:title).page params[:page]
+      authorize @user
     end
 
     def edit
-        @user = current_user
+      @user = current_user
+      authorize @user
     end
 
     def update
-        if current_user.update(users_params)
-            flash.notice = "User updated successfuly!"
-        else
-            flash.alert = "Error : user not saved!"
-        end
-        redirect_to :account
+      if current_user.update(users_params)
+          flash.notice = "User updated successfuly!"
+      else
+          flash.alert = "Error : user not saved!"
+      end
+      redirect_to :account
     end
 
     def destroy

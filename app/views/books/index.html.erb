@@ -1,16 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Books</h1>
-
-<div id="books">
-  <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
-  <% end %>
-  <%= paginate @books %>
-</div>
+<%= link_to "New book", new_book_url %> <br> <br>
 
 <div class="search">
   <%= render "search" %>
@@ -25,4 +16,12 @@
   </div>
 <% end %>
 
-<%= link_to "New book", new_book_url %>
+<div id="books">
+  <% @books.each do |book| %>
+    <%= render book %>
+    <p>
+      <%= link_to "Show this book", book %>
+    </p>
+  <% end %>
+  <%= paginate @books %>
+</div>

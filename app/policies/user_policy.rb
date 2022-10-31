@@ -7,23 +7,23 @@ class UserPolicy < ApplicationPolicy
     end
   
     def index?
-      user.admin? || record.exists?(id: user.id)
+      !user.basic? 
     end
   
     def show?
-      user.admin? || record.id == user.id
+      !user.basic? || record.id == user.id
     end
   
     def create?
-      user.admin? || record.id == user.id
+      !user.basic? || record.id == user.id
     end
   
     def update?
-      user.admin? || record.id == user.id
+      !user.basic? || record.id == user.id
     end
   
     def destroy?
-      user.admin? || record.id == user.id
+      !user.basic? || record.id == user.id
     end
   
   end

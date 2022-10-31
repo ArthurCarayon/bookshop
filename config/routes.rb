@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/' => 'admin#index'
+    get 'signasuser/:id', to: 'admin#signasuser', as: 'signasuser'
   end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
