@@ -7,17 +7,16 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-## needehlp comment creer plusieurs users avec pour chaque des livres
-admin = false
-3.times.each do |i| 
-    if i == 2
-        admin = true
+50.times.each do |i| 
+    if i == 1
+        User.create!(email: "a@a.org", firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, password: "asdzxc", password_confirmation: "asdzxc", role: 2)
+    else
+        User.create!(email: "user#{i}@a.org", firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, password: "asdzxc", password_confirmation: "asdzxc")
     end
-    User.create!(email: "user#{i}@example.org", firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, password: "books123456", password_confirmation: "books123456", admin: admin)
 end
 
 User.all.find_each do |user| 
-    10.times { |a|
+    rand(1..30).times { |a|
         ## needhelp j'ai souvenir qu'on ai fait << mais je sais plus ou 
         ## SO ligne above is the same as : @user.books.push(Book.new())
         ## user.books = User.find(1).bookscolumn 

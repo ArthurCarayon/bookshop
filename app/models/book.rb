@@ -2,7 +2,7 @@ class Book < ApplicationRecord
     belongs_to :user
     has_one_attached :thumbnail
     after_create :search_description
-    paginates_per 6
+    paginates_per 25
 
     scope :latest_for_homepage, -> { self.last(3) }
 

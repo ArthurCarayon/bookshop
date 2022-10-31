@@ -1,0 +1,17 @@
+<h1>Admin page</h1>
+
+<h3>Users:</h3>
+<% @users.each do |user| %>
+  <%= user.firstname %>
+  <%= link_to "Editer", edit_account_path(user) %>
+  <%= link_to "Delete", account_path(user), method: :delete, data:{ turbo_method: :delete, turbo_confirm: "Account will be deleted" } %> <br>
+<% end %> <br>
+<%= paginate @users %>
+<br><br>
+
+<h3>Books</h3>
+<% @books.each do |book| %>
+  <%= book.title %>
+  <%= link_to "Editer", edit_book_path(book) %> <br>
+<% end %> <br>
+<%= paginate @books %>

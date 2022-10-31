@@ -14,6 +14,7 @@ class BooksController < ApplicationController
       @q = Book.ransack(params[:q])
     end
     @booksResult = @q.result(distinct: true)
+
   end
 
   # GET /books/1 or /books/1.json
@@ -23,6 +24,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    authorize @book
   end
 
   # GET /books/1/edit
