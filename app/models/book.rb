@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
     belongs_to :user
+    has_many :comments
     has_one_attached :thumbnail
     after_create :search_description
     paginates_per 25

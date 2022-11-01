@@ -7,23 +7,27 @@ class BookPolicy < ApplicationPolicy
   end
 
   def index?
-    user.admin? || book.exists?(id: user.id)
+    # user.admin? || record.exists?(user_id: user.id)
   end
 
   def show?
-    user.admin? || book.id == user.id
+    # user.admin? || record.user_id == user.id
+  end
+
+  def new?
+    true
   end
 
   def create?
-    user.admin?
+    true
   end
 
   def update?
-    user.admin? 
+    # user.admin? || record.user_id == user.id
   end
 
   def destroy?
-    user.admin?
+    # user.admin? || record.user_id == user.id
   end
 
   class Scope

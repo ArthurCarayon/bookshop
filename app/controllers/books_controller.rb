@@ -19,12 +19,12 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
+    @comment = @book.comments.build
   end
 
   # GET /books/new
   def new
-    @book = Book.new
-    authorize @book
+    @book = Book.new    
   end
 
   # GET /books/1/edit
@@ -82,8 +82,8 @@ class BooksController < ApplicationController
 
     ## SO 
     def auth_owner
-      if @book.user_id != current_user.id 
-        redirect_to :root, alert: "Not the owner"
+      if @book.user_id != current_user.id && current_user.basic?
+        redirect_to :root, alert: "You can't edit this book"
       end
     end
 end

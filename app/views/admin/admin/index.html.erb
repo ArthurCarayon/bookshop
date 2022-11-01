@@ -1,12 +1,16 @@
-<h1>Admin page</h1>
+<h1>Admin#index</h1>
+
+<h4><%= current_user.firstname %>, you are <%= current_user.role %></h4>
 
 <h3>Users:</h3>
 <% @users.each do |user| %>
-  <%= user.firstname %>
+  <%= user.id %> <%= user.firstname %>
   <%= link_to "Editer", edit_account_path(user) %>
-  <%= link_to "Delete", account_path(user), method: :delete, data:{ turbo_method: :delete, turbo_confirm: "Account will be deleted" } %>
-  <%= link_to "Sign as", admin_signasuser_path(user.id)  %> <br>
-<% end %> <br>
+  <% if current_user.admin? %>
+    <%= link_to "Delete", account_path(user), method: :delete, data:{ turbo_method: :delete, turbo_confirm: "Account will be deleted" } %>
+    <%= link_to "Sign as", admin_signasuser_path(user.id)  %> 
+  <% end %><br><br>
+<% end %> 
 <%= paginate @users %>
 <br><br>
 
