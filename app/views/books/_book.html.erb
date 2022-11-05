@@ -1,23 +1,24 @@
-<div id="<%= dom_id book %>">
-  <p>
-    <strong>Title:</strong>
-    <%= book.title %>
-  </p>
+<div class="post book">
+  <h2><%= book.title %></h2>
 
-  <p>
-    <strong>Description:</strong>
+  <h4>
+    <% if book.pricepromo.present? %> 
+      <s><%= book.price %>€</s> <%= book.pricepromo %>€
+    <% else %>
+      <%= book.price %>€
+    <% end %>
+  </h4>
+
+  <div class="description">
     <%= book.description %>
-  </p>
-
+  </div>
+  
+  <% if book.category.present? %>
   <p>
-    <strong>Isbn:</strong>
-    <%= book.isbn %>
+    <strong>Category:</strong>
+      <%= book.category.name %> 
   </p>
-
-  <p>
-    <strong>Seller:</strong>
-    <%= book.user.id %>
-  </p>
+  <% end %>
 
   <% if book.thumbnail.present? %>
       <%= image_tag book.thumbnail.variant(resize_to_limit: [200, 200]) %>

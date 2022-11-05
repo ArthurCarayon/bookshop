@@ -3,18 +3,11 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, except: %i[ show index ]
   ## a quoi sert le %i > ca permet de dire que l'array est remplie de symbols
   before_action :auth_owner, only: %i[ edit update destroy ]
+  before_action :set_categories
 
   # GET /books or /books.json
   def index
-    @books = Book.order(:title).page params[:page]
-
-    if params[:q].blank?
-      @q = Book.none.ransack(params[:q])
-    else
-      @q = Book.ransack(params[:q])
-    end
-    @booksResult = @q.result(distinct: true)
-
+    @categories
   end
 
   # GET /books/1 or /books/1.json
@@ -64,7 +57,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
+      format.html { redirect_to account_path, notice: "Book was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -77,7 +70,7 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :description, :isbn, :thumbnail)
+      params.require(:book).permit(:title, :description, :isbn, :thumbnail, :category_id, :price, :pricepromo)
     end
 
     ## SO 
@@ -85,5 +78,9 @@ class BooksController < ApplicationController
       if @book.user_id != current_user.id && current_user.basic?
         redirect_to :root, alert: "You can't edit this book"
       end
+    end
+
+    def set_categories
+      @categories = Category.all
     end
 end

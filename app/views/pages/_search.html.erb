@@ -1,0 +1,12 @@
+<%= search_form_for @q, url: root_path do |f| %>
+  <h5>Rechercher</h5>
+  <%= f.search_field :title_cont %>    
+<% end %>
+
+<h5>Catégories</h5>
+<ul>
+  <li><%= link_to "Page d'accueil", root_path %></li>
+  <% @categories.each do |cat| %>
+    <li><%= link_to cat.name, root_path(q: {category_id_eq: cat.id}) %></li>
+  <% end %>
+</ul>

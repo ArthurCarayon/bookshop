@@ -1,0 +1,113 @@
+@import url('//fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+body {
+	font: normal 1rem Helvetica, Arial, Verdana;
+	background-color:#FAF5EE;
+	color:#2E2A28;
+}
+
+h1, h2, h3, h4, h5 {
+	margin:0 0 8px 0;
+	font-family: 'Noto Serif';
+	font-weight: bold;
+	color:#885131;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+h2 {
+	font-size: 2rem;
+}
+h3 {
+	font-size: 1.75rem;
+}
+h4 {
+	font-size: 1.5rem;
+}
+h5 {
+	font-size: 1.25rem;
+}
+
+a {
+	text-decoration: none;
+	color:inherit;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+ul {
+	padding:0;
+	list-style: none;
+
+	li {
+		list-style: none;
+		display: block;
+		padding:2px 0;
+		margin-bottom: 4px;
+	}
+}
+
+#app {
+	max-width: 64rem;
+	margin: 0 auto;
+
+	.flex_main {
+		display: flex;
+		margin-top:2rem;
+	}
+
+  .header .top_img {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 280px;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	background-size: cover;
+	background-position: 50%;
+
+	h1 {
+		background-color:#fff;
+		display: block;
+		padding: 0.75rem 1rem;
+		max-width: 80%;
+	}
+  }
+
+	nav {
+		max-width: 16.25rem;
+
+		.search {
+
+			.book_search {
+				margin-bottom: 32px;
+			}
+			#q_title_cont {
+				height: 40px;
+				border: 1px solid #DBDBDB;
+				padding:4px 12px;
+			}
+		}
+
+		.admin {
+			margin-top: 32px;
+		}
+	}
+
+	.content {
+		width: 100%;
+		margin-left:2.5rem;
+
+		.post {
+			background-color: #FFFCF9;
+			padding:2.5rem;
+			margin-bottom: 2rem;
+		}
+	}
+}

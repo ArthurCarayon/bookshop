@@ -7,15 +7,27 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag( 'https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap' ) %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <div id="app">
       <p class="notice" style="color:orange"><%= notice %></p>
       <p class="alert" style="color:red"><%= alert %></p>
 
-    <%= render "layouts/nav" %>
+      <% if current_page?(root_path) %>
+        <%= render "layouts/header", sitecontent: @sitecontent %>
+      <% end %>
 
-    <%= yield %>
+      <div class="flex_main">
+        <% if current_page?(root_path) %>  
+          <%= render "layouts/nav" %>
+        <% end %>
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,36 @@
+<%= form_with(model: sitecontent) do |form| %>
+
+  <div>
+    <%= form.label :title_site, style: "display: block" %>
+    <%= form.text_field :title_site %>
+  </div>
+
+  <div>
+    <%= form.label :subtitle_site, style: "display: block" %>
+    <%= form.text_field :subtitle_site %>
+  </div>
+
+  <div>
+    <%= form.label :description_site, style: "display: block" %>
+    <%= form.text_field :description_site %>
+  </div>
+
+  <div>
+    <%= form.label :text_rc, style: "display: block" %>
+    <%= form.text_area :text_rc %>
+  </div>
+
+  <div>
+    <%= form.label :headimg, style: "display: block" %>
+    <%= form.file_field :headimg %>
+  </div>
+
+  <div>
+    <%= form.label :columnimg, style: "display: block" %>
+    <%= form.file_field :columnimg %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

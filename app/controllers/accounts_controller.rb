@@ -1,10 +1,15 @@
 class AccountsController < ApplicationController
 
     def index
-      @user = current_user        
+      @user = current_user 
     end
 
     def show
+      @category = Category.new
+      @categories = Category.all
+      @sitecontent = Sitecontent.find(1)
+      @q = Book.none.ransack(params[:q])
+
       if(params[:id])
         @user = User.find(params[:id])
       else

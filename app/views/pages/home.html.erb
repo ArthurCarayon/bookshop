@@ -1,5 +1,6 @@
-<% @books.each do |book| %>
-    <%= book.title %>
-    <%= book.description %>
-    <%= link_to "Voir le livre", book_path(book) %>
-<% end %>
+<div class="result">
+  <% @books.each do |book| %>
+      <%= render book %>
+  <% end %>
+  <%= paginate @books %>
+</div>
