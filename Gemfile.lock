@@ -289,7 +289,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bcrypt_pbkdf (>= 1.0, < 2.0)
+  bcrypt_pbkdf
   bootsnap
   byebug
   capistrano (~> 3.17)
@@ -299,7 +299,7 @@ DEPENDENCIES
   capybara
   debug
   devise
-  ed25519 (>= 1.2, < 2.0)
+  ed25519
   faker
   image_processing (~> 1.2)
   importmap-rails

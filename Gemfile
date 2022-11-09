@@ -64,8 +64,9 @@ gem 'capistrano-rbenv',           '2.2 '
 gem 'capistrano-passenger',       '0.2.1'
 
 gem 'net-ssh', '>= 6.0.2', require: false
-gem 'ed25519', '>= 1.2', '< 2.0', require: false
-gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0', require: false
+gem 'ed25519', require: false
+gem 'bcrypt_pbkdf', require: false
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
