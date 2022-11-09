@@ -57,6 +57,16 @@ gem 'kaminari'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
+#seamless git
+gem "capistrano", "~> 3.17", require: false
+gem 'capistrano-rails',           '1.6'
+gem 'capistrano-rbenv',           '2.2 '
+gem 'capistrano-passenger',       '0.2.1'
+
+gem 'net-ssh', '>= 6.0.2'
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -69,16 +79,6 @@ group :development do
 
   # bye bug
   gem 'byebug'
-
-  gem 'net-ssh', '>= 6.0.2'
-  gem 'ed25519', '>= 1.2', '< 2.0'
-  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
-
-  #seamless git
-  gem "capistrano", "~> 3.17", require: false
-  gem 'capistrano-rails',           '1.6'
-  gem 'capistrano-rbenv',           '2.2 '
-  gem 'capistrano-passenger',       '0.2.1'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
