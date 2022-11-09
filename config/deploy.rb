@@ -3,15 +3,15 @@ lock "~> 3.17.1"
 
 set :application, "bookshop"
 set :repo_url, "git@github.com:ArthurCarayon/bookshop.git"
-set :deploy_to, "/var/www/bookshop"
-append :linked_files, 'config/credentials/production.key'
+set :deploy_to, "/var/www/#{fetch :application}"
+append :linked_files,  'config/credentials/production.key'
 set :branch, fetch(:branch, "main")
 
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/bookshop"
+set :deploy_to, "/var/www/#{fetch :application}"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
