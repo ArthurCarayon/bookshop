@@ -9,7 +9,7 @@
 
 set :stage, :staging
 
-set :app_path, "/var/www/booksop/#{fetch(:application)}"
+set :app_path, "/var/www/#{fetch(:application)}"
 set :branch, 'main'
 set :deploy_to, fetch(:app_path)
 server '161.35.88.149', user: 'alceste', roles: %w{app db web}
