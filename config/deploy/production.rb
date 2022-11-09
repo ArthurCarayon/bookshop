@@ -4,7 +4,7 @@
 # You can define all roles on a single server, or split them:
 
 
-set :app_path, "/var/www/bookshop/"
+set :app_path, "/var/www/bookshop"
 set :branch, 'main'
 set :deploy_to, 'bookshop'
 server '161.35.88.149', user: 'alceste', roles: %w{app db web}
