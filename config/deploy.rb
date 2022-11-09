@@ -4,7 +4,7 @@ lock "~> 3.17.1"
 set :application, "bookshop"
 set :repo_url, "git@github.com:ArthurCarayon/bookshop.git"
 set :deploy_to, "/var/www/#{fetch :application}"
-# append :linked_files,  'config/credentials/production.key'
+append :linked_files,  'config/credentials/production.key'
 set :branch, fetch(:branch, "main")
 
 # Default branch is :master
