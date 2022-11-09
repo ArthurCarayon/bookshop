@@ -9,9 +9,9 @@
 
 set :stage, :staging
 
-set :app_path, "/var/www/bookshop"
+set :app_path, "/var/www/#{fetch(:application)}"
 set :branch, 'main'
-set :deploy_to, "/var/www/bookshop"
+set :deploy_to, fetch(:app_path)
 server '161.35.88.149', user: 'alceste', roles: %w{app db web}
 
 # role-based syntax
