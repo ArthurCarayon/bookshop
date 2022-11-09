@@ -1,5 +1,7 @@
 <div class="header">
+    <% if @sitecontent.headimg.present? %>
     <a href="/" class="top_img" style="background-image: url(<%= rails_blob_url(@sitecontent.headimg.variant(resize_to_limit: [1024,450])) %>)">
         <h1><%= @sitecontent.title_site %></h1>
     </a>
+    <% end %>
 </div>
