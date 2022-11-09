@@ -305,7 +305,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kaminari
-  net-ssh (>= 6.0.2)
+  net-ssh
   pg (~> 1.1)
   puma (~> 5.0)
   pundit (~> 2.2)

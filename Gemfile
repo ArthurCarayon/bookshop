@@ -63,7 +63,7 @@ gem 'capistrano-rails',           '1.6'
 gem 'capistrano-rbenv',           '2.2 '
 gem 'capistrano-passenger',       '0.2.1'
 
-gem 'net-ssh', '>= 6.0.2', require: false
+gem 'net-ssh', require: false
 gem 'ed25519', require: false
 gem 'bcrypt_pbkdf', require: false
 
