@@ -70,6 +70,10 @@ group :development do
   # bye bug
   gem 'byebug'
 
+  gem 'net-ssh', '>= 6.0.2'
+  gem 'ed25519', '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
   #seamless git
   gem "capistrano", "~> 3.17", require: false
   gem 'capistrano-rails',           '1.6'

@@ -7,7 +7,12 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
+set :stage, :staging
 
+set :app_path, "/var/www/booksop/#{fetch(:application)}"
+set :branch, 'main'
+set :deploy_to, fetch(:app_path)
+server '161.35.88.149', user: 'alceste', roles: %w{app db web}
 
 # role-based syntax
 # ==================
