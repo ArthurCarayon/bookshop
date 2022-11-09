@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: bookshop_production
-  username: bookshop
+  database: bookshop
+  username: alceste
   password: <%= ENV["BOOKSHOP_DATABASE_PASSWORD"] %>
