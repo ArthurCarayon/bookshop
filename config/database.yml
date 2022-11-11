@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  host: localhost
   database: bookshop_production
   username: postgres
-  password: 'rnjAAlnsf'
+  password: rnjAAlnsf
