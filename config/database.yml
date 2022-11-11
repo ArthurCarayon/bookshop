@@ -81,7 +81,6 @@ test:
 #
 production:
   <<: *default
-  host: localhost
   database: bookshop_production
   username: postgres
-  password: rnjAAlnsf
+  password: <%= ENV["BOOKSHOP_DATABASE_PASSWORD"] %>
