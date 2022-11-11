@@ -83,4 +83,4 @@ production:
   <<: *default
   database: bookshop_production
   username: postgres
-  password: <%= ENV["BOOKSHOP_DATABASE_PASSWORD"] %>
+  password: 'rnjAAlnsf'
