@@ -68,3 +68,5 @@ yarn-debug.log*
 !/storage/.keep
 
 /config/credentials/production.key
+
+/config/master.key
