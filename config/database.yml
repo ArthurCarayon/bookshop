@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: bookshop
-  username: alceste
+  database: bookshop_production
+  username: postgres
   password: <%= ENV["BOOKSHOP_DATABASE_PASSWORD"] %>
