@@ -1,4 +1,4 @@
-IFS= read -r -p "Commit motif?" input
+IFS= read -r -p $"Commit motif? `echo $'\n> '`" input
 echo "$input"
 if [ -z "$input" ]; 
 then
