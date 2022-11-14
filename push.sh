@@ -1,8 +1,7 @@
-echo "Commit motif?"
-read motif
-if [ $motif ]; 
+IFS= read -r -p "Commit motif?" input
+if [ $input ]; 
 then
-    MSG=$motif
+    MSG=$input
 else
     MSG="fix"
 fi
