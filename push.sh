@@ -1,6 +1,6 @@
 IFS= read -r -p "Commit motif?" input
 echo "$input"
-if [ $input ]; 
+if [ -z "$input" ]; 
 then
     MSG="$input"
 else
