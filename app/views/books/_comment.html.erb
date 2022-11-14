@@ -1,9 +1,9 @@
-
 <% @book.comments.each do |comment| %>
   <% unless comment.id.nil? %>
     <%= comment.comment %> by <%= comment.author %> 
-    <%= button_to "Destroy this comment", comment, method: :delete %>
+    <% if current_user && current_user.admin? %>
+      <%= button_to "Destroy this comment", comment, method: :delete %>
+    <% end %>
   <% end %>
   <br>
  <% end %>
-

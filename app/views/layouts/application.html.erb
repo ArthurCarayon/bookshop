@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag( 'https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap' ) %>
+    <%= yield :recaptcha_js %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -16,12 +17,12 @@
       <p class="notice" style="color:orange"><%= notice %></p>
       <p class="alert" style="color:red"><%= alert %></p>
 
-      <% if current_page?(root_path) %>
+      <% unless request.original_url.include? "accounts" %>
         <%= render "layouts/header", sitecontent: @sitecontent %>
       <% end %>
 
       <div class="flex_main">
-        <% if current_page?(root_path) %>  
+        <% unless request.original_url.include? "accounts" %>
           <%= render "layouts/nav" %>
         <% end %>
         <div class="content">
@@ -29,5 +30,11 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+      }
+    </script>
   </body>
 </html>

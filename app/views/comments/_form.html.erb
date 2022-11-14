@@ -1,3 +1,7 @@
+<%= content_for :recaptcha_js do %>
+  <%= include_recaptcha_js %>
+<% end %>
+
 <%= form_with(model: comment) do |form| %>
   <% if comment.errors.any? %>
     <div style="color: red">
@@ -29,6 +33,7 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit 'Envoyer', id: "submit" %>
+    <%= recaptcha_execute('comment') %>
   </div>
 <% end %>
