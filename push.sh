@@ -1,7 +1,8 @@
 IFS= read -r -p "Commit motif?" input
+echo "$input"
 if [ $input ]; 
 then
-    MSG=$input
+    MSG="$input"
 else
     MSG="fix"
 fi
