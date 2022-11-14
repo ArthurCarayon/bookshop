@@ -25,7 +25,14 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new    
+    @book = Book.new 
+    if params[:q].blank?
+      @q = Book.none.ransack(params[:q])
+    else
+      @q = Book.ransack(params[:q])
+      @q.sorts = 'created_at desc' if @q.sorts.empty?
+      @books = @q.result.page(params[:page]).per(10)
+    end
   end
 
   # GET /books/1/edit

@@ -2,12 +2,18 @@ class AccountsController < ApplicationController
 
     def index
       @user = current_user 
+      @sitecontent = Sitecontent.first
+      if params[:q].blank?
+        @q = Book.none.ransack(params[:q])
+      else
+        @q = Book.ransack(params[:q])
+        @q.sorts = 'created_at desc' if @q.sorts.empty?
+      end
     end
 
     def show
       @category = Category.new
       @categories = Category.all
-      @sitecontent = Sitecontent.find(1)
       @q = Book.none.ransack(params[:q])
 
       if(params[:id])
@@ -16,7 +22,12 @@ class AccountsController < ApplicationController
         @user = current_user
       end
       @books = Book.where(:user_id => @user.id).order(:title).page params[:page]
-      authorize @user
+
+      if Sitecontent.first.present?
+        @sitecontent = Sitecontent.first
+      else
+        @sitecontent = Sitecontent.new
+      end
     end
 
     def edit

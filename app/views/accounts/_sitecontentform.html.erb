@@ -1,4 +1,4 @@
-<%= form_with(model: sitecontent) do |form| %>
+<%= form_with(model: sitecontent, url: sitecontent_path(@sitecontent)) do |form| %>
 
   <div>
     <%= form.label :title_site, style: "display: block" %>
