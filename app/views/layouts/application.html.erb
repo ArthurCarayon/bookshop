@@ -7,8 +7,8 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     <%= stylesheet_link_tag( 'https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap' ) %>
-    <%= yield :recaptcha_js %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -30,11 +30,5 @@
         </div>
       </div>
     </div>
-
-    <script>
-      function onSubmit(token) {
-        document.getElementById("demo-form").submit();
-      }
-    </script>
   </body>
 </html>

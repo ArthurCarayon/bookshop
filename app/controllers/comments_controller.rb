@@ -18,21 +18,13 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
 
-    byebug
-
-    unless verify_recaptcha?(params[:authenticity_token], 'comment')
-      flash.now[:error] = "reCAPTCHA Authorization Failed. Please try again."
-      redirect_to @comment.book, notice: "Captcha failed", status: :unprocessable_entity
-      return
-    else
-      respond_to do |format|
-        if @comment.save
-          format.html { redirect_to @comment.book, notice: "Comment was successfully created." }
-          format.json { render :show, status: :created, location: @comment }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @comment.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to @comment.book, notice: "Comment was successfully created." }
+        format.json { render :show, status: :created, location: @comment }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
