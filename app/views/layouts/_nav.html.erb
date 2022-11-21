@@ -5,11 +5,11 @@
 
     <ul class="admin">
     <% unless user_signed_in?  %>
-       <li><%= link_to "Se connecter", new_user_session_path %></li>
+       <li><%= link_to t('signin_label'), new_user_session_path %></li>
     <% else %>
-        <li><%= link_to "Ajouter un livre", new_book_path %></li>
-        <li><%= link_to "Admin", account_path(current_user) %></li>
-        <li><%= link_to "Se Déconnecter", destroy_user_session_path, 'data-turbo-method': :delete %></li>
+        <li><%= link_to t('addbook_label'), new_book_path %></li>
+        <li><%= link_to t('admin_label'), account_path(current_user) %></li>
+        <li><%= link_to t('signout_label'), destroy_user_session_path, 'data-turbo-method': :delete %></li>
     <% end %>
     </ul>
 </nav>

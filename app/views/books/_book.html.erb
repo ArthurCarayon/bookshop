@@ -20,6 +20,9 @@
   </p>
   <% end %>
 
-  <%= book.comments.count %> • <%= link_to 'Add a comment', book_path(book) %>
+  <% unless request.original_url.include? "books" %>
+    <%= book.comments.count %> • <%= link_to 'Add a comment', book_path(book) %>
+  <% end %>
+  
 
 </div>

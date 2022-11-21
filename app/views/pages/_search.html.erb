@@ -3,9 +3,9 @@
   <%= f.search_field :title_cont %>    
 <% end %>
 
-<h5>Catégories</h5>
+<h5><%= t('categories_label') %></h5>
 <ul>
-  <li><%= link_to "Page d'accueil", root_path %></li>
+  <li><%= link_to t('home_label'), root_path %></li>
   <% @categories.each do |cat| %>
     <li><%= link_to cat.name, root_path(q: {category_id_eq: cat.id}) %></li>
   <% end %>

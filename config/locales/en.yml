@@ -31,3 +31,9 @@
 
 en:
   search_title: "Looking for"
+  home_label: "Home"
+  categories_label: "Home"
+  signin_label: "Sign-in"
+  signout_label: "Sign-out"
+  addbook_label: "Add a book"
+  admin_label: "Admin"

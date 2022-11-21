@@ -1,0 +1,8 @@
+fr:
+  search_title: "Recherche"
+  home_title: "Accueil"
+  categories_label: "Catégories"
+  signin_label: "Se connecter"
+  signout_label: "Se déconnecter"
+  addbook_label: "Ajouter un livre"
+  admin_label: "Admin"
