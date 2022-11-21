@@ -1,5 +1,5 @@
 <%= search_form_for @q, url: root_path do |f| %>
-  <h5>Rechercher</h5>
+  <h5><%= t('search_title') %></h5>
   <%= f.search_field :title_cont %>    
 <% end %>
 

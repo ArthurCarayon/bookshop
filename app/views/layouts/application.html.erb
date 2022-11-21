@@ -14,8 +14,6 @@
 
   <body>
     <div id="app">
-      <p class="notice" style="color:orange"><%= notice %></p>
-      <p class="alert" style="color:red"><%= alert %></p>
 
       <% unless request.original_url.include? "accounts" or request.original_url.include? "users" %>
         <%= render "layouts/header", sitecontent: @sitecontent %>

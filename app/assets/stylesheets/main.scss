@@ -54,6 +54,8 @@ ul {
 	max-width: 64rem;
 	margin: 0 auto;
 
+	.grecaptcha-badge { visibility: hidden; display:none; }
+
 	.flex_main {
 		display: flex;
 		margin-top:2rem;

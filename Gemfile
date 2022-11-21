@@ -59,16 +59,6 @@ gem 'kaminari'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
-#seamless git
-gem "capistrano", "~> 3.17", require: false
-gem 'capistrano-rails',           '1.6'
-gem 'capistrano-rbenv',           '2.2 '
-gem 'capistrano-passenger',       '0.2.1'
-
-gem 'net-ssh', require: false
-gem 'ed25519', require: false
-gem 'bcrypt_pbkdf', require: false
-
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
