@@ -1,5 +1,5 @@
 class Admin::AdminController < ApplicationController
-  layout "application"
+  layout 'application'
   include Pundit
 
   def index
@@ -10,11 +10,11 @@ class Admin::AdminController < ApplicationController
   end
 
   def signasuser
-    if current_user.admin?
-      @user = User.find(params.require(:id))
-      sign_in(:user, @user)
-      redirect_to account_path
-    end
+    return unless current_user.admin?
+
+    @user = User.find(params.require(:id))
+    sign_in(:user, @user)
+    redirect_to account_path
   end
 
   ## needhelp creer un bouton de sign back as admin
@@ -23,5 +23,4 @@ class Admin::AdminController < ApplicationController
     sign_in(:user, @user)
     redirect_to admin_path
   end
-
 end

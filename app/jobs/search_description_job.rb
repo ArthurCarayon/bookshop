@@ -1,5 +1,5 @@
-require "uri"
-require "net/http"
+require 'uri'
+require 'net/http'
 
 class SearchDescriptionJob < ApplicationJob
   queue_as :default
@@ -20,6 +20,6 @@ class SearchDescriptionJob < ApplicationJob
     response = https.request(request)
 
     body = JSON.parse(response.read_body)
-    book.update!(description: body[body.keys.first]["info_url"])
+    book.update!(description: body[body.keys.first]['info_url'])
   end
 end
