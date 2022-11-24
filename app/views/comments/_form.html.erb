@@ -3,37 +3,31 @@
 <% end %>
 
 <%= form_with model: comment, id: "com-form" do |form| %>
-  <% if comment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-        <% comment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <%= form.hidden_field :book_id %>
 
-  <div>
-    <%= form.label :comment, style: "display: block" %>
-    <%= form.text_area :comment %>
-  </div>
+  <div class="layout_fields">
+    <div class="author_message">
+      <%= form.label :comment, style: "display: block" %>
+      <%= form.text_area :comment %>
+    </div>
 
-  <div>
-    <%= form.label :author, style: "display: block" %>
-    <%= form.text_field :author %>
-  </div>
+    <div class="div author_info">
+      <div class="field">
+        <%= form.label :author, style: "display: block" %>
+        <%= form.text_field :author %>
+      </div>
 
-  <div>
-    <%= form.label :author_email, style: "display: block" %>
-    <%= form.text_field :author_email %>
-  </div>
+      <div class="field">
+        <%= form.label :author_email, style: "display: block" %>
+        <%= form.text_field :author_email %>
+      </div>
+      
 
-  <div>
-    <%= form.submit 'Envoyer', id: "btnSubmit", class: 'g-recaptcha', data: {'sitekey': '6Lfgwf8iAAAAAM3p4fF-g0H9ShHJA9H8ijb7tpwf', 'callback': 'onSubmit', 'action': 'submit' } %>
+      <div>
+        <%= form.submit t('general.submit'), id: "btnSubmit", class: 'g-recaptcha, btn primary', data: {'sitekey': '6Lfgwf8iAAAAAM3p4fF-g0H9ShHJA9H8ijb7tpwf', 'callback': 'onSubmit', 'action': 'submit' } %>
+      </div>
+    </div>
   </div>
   <script>
       function onSubmit(token) {

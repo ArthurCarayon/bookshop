@@ -1,9 +1,14 @@
 <% @book.comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <%= comment.comment %> by <%= comment.author %> 
-    <% if current_user && current_user.admin? %>
-      <%= button_to "Destroy this comment", comment, method: :delete %>
-    <% end %>
+    <div class="a_comment">
+      <p><%= comment.comment %></p> 
+      <div class="author_div">
+        <%= t('by') %> <span class="author_comment"><%= comment.author %></span> • 
+        <span class="date_comment"><%= t(comment.created_at.strftime("#{comment.created_at.day.ordinalize} %B %Y")) %></span>
+        <% if current_user && current_user.admin? %>
+          • <%= link_to "Destroy this comment", comment, data: { "turbo-method": :delete } %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
-  <br>
- <% end %>
+<% end %>

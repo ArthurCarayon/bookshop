@@ -4,7 +4,7 @@
     </div>
 
     <ul class="admin">
-    <% unless user_signed_in?  %>
+    <% unless user_signed_in? && current_user.admin? %>
        <li><%= link_to t('signin_label'), new_user_session_path %></li>
     <% else %>
         <li><%= link_to t('addbook_label'), new_book_path %></li>

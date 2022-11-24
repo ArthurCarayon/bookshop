@@ -14,6 +14,11 @@
 
   <body>
     <div id="app">
+      <% flash.each do |type, msg| %>
+        <div class="flash <%= type %>">          
+          <%= msg %>
+        </div>
+      <% end %>
 
       <% unless request.original_url.include? "accounts" or request.original_url.include? "users" %>
         <%= render "layouts/header", sitecontent: @sitecontent %>

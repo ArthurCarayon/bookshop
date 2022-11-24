@@ -6,3 +6,12 @@ fr:
   signout_label: "Se déconnecter"
   addbook_label: "Ajouter un livre"
   admin_label: "Admin"
+  comment_title_label: "Commentaires"
+  activerecord:
+    models:
+      comment: admin user
+    attributes:
+      admin/user:
+        comment: "Votre commentaire"
+        author: "Votre nom" 
+        author_email: "Votre email" 

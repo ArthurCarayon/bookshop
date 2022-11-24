@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  general:
+    submit: "Send"
+    remove_comment: "Supprimer ce commentaire"
   search_title: "Looking for"
   home_label: "Home"
   categories_label: "Home"
@@ -37,3 +40,24 @@ en:
   signout_label: "Sign-out"
   addbook_label: "Add a book"
   admin_label: "Admin"
+  comment_title_label: "Comments"
+  by: "By"
+  activerecord:
+    errors:
+      models:
+        comment:
+          attributes:
+            comment:
+              blank: "can't be blank"
+      messages:
+        bad_email: "Your email is not valid"
+    attributes:
+      comment:
+        comment: "Your message"
+        author: "Name" 
+        author_email: "Your email" 
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: "that's blank"
+    

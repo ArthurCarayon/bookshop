@@ -21,7 +21,7 @@
   <% end %>
 
   <% unless request.original_url.include? "books" %>
-    <%= book.comments.count %> • <%= link_to 'Add a comment', book_path(book) %>
+    <%= book.comments.count %> • <%= link_to 'Add a comment', book_path(book, :anchor => "com") %>
   <% end %>
   
 

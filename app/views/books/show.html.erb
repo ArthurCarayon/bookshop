@@ -1,19 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @book %>
 
 <div>
   <% if current_user && @book.user_id == current_user.id || current_user && current_user.admin? %>
-    <%= link_to "Edit this book", edit_book_path(@book) %> | 
-    <%= link_to "Destroy this book", @book, data: { turbo_method: :delete } %>
+    <ul class="admin_links">
+      <li>Action administrateur : </li>
+      <li><%= link_to "Edit this book", edit_book_path(@book), class: "btn secondary" %> </li>
+      <li><%= link_to "Destroy this book", @book, data: { turbo_method: :delete }, class: "btn secondary" %></li>
+    </ul>
   <% end %>
 
-  <br><br>
-  <%= render 'comment', book: @book %>
-  <br><br>
-  <%= render 'comments/form', comment: @comment %>
-
-  <br><br>
-
-  <%= link_to "Back to home", root_path %>
+  <div id="com">
+    <h4><%= t('comment_title_label') %> (<%= @book.comments.count %>)</h4>
+    <div class="comment_form">
+      <%= render 'comments/form', comment: @comment %>
+    </div>
+    <div class="comments_list">
+      <%= render 'comment', book: @book %>
+    </div>
+  </div>
 </div>
