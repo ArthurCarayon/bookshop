@@ -8,15 +8,17 @@
 <% end %>
 
 <div class="result">
-  <div class="head_result">
-    <% if @booksResult.count < 1 && params[:q] %>
-      <h5><%= t('no_results') %></h5>
-      <%= link_to t('return_home_label'), root_path %>
-    <% elsif params[:q] %>
-      <%= link_to t('return_home_label'), root_path %>
-      <h4 class="result_title"><%= t('search_result_title', count: @booksResult.count) %>:</h4>
-    <% end %>
-  </div>
+  <% if params[:q] %>
+    <div class="head_result">
+      <% if @booksResult.count < 1 %>
+        <h5><%= t('no_results') %></h5>
+        <%= link_to t('return_home_label'), root_path %>
+      <% elsif params[:q][:title_or_description_body_cont] && @booksResult.count > 0 %>
+        <%= link_to t('return_home_label'), root_path %>
+        <h4 class="result_title"><%= t('search_result_title', count: @booksResult.count) %>:</h4>
+      <% end %>
+    </div>
+  <% end %>
   <% @booksResult.each do |book| %>
       <%= render book %>
   <% end %>
