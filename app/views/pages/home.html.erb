@@ -1,6 +1,25 @@
+<% if @searchedCateg %>
+  <nav aria-label="Breadcrumb" class="breadcrumb">
+    <ul>
+        <li><%= link_to t('home_label'), root_path %></li>
+        <li><span aria-current="page"><%= @searchedCateg.name %></span></li>
+    </ul>
+</nav>
+<% end %>
+
 <div class="result">
+  <div class="head_result">
+    <% if @booksResult.count < 1 && params[:q] %>
+      <h5><%= t('no_results') %></h5>
+      <%= link_to t('return_home_label'), root_path %>
+    <% elsif params[:q] %>
+      <%= link_to t('return_home_label'), root_path %>
+      <h4 class="result_title"><%= t('search_result_title', count: @booksResult.count) %>:</h4>
+    <% end %>
+  </div>
   <% @booksResult.each do |book| %>
       <%= render book %>
   <% end %>
-  <%= paginate @booksResult %>
+  <%= paginate @booksResult %>  
+
 </div>

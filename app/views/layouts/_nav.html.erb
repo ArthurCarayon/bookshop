@@ -1,11 +1,23 @@
 <nav>
-    <% unless current_page?(root_path) %>
-        <%= link_to t('home_label'), root_path, class: 'return_home' %>
-    <% end %>
-    
+    <div class="info">
+        <% if @sitecontent&.columnimg.present? %>
+            <%= image_tag(@sitecontent.columnimg.variant(resize_to_limit: [300,300]), class: 'columnimg') %>
+        <% end %>
+        <%= @sitecontent.text_rc %>
+    </div>
+
     <div class="search">
         <%= render "pages/search" %>
     </div>
+
+    <% if @categories.present? %>
+    <h5><%= t('categories_label') %></h5>
+    <ul>
+        <% @categories.each do |cat| %>
+        <li><%= link_to cat.name, root_path(q: {category_id_eq: cat.id}) %></li>
+        <% end %>
+    </ul>
+    <% end %>
 
     <ul class="admin">
     <% unless user_signed_in? && current_user.admin? %>
@@ -19,9 +31,9 @@
 
     <div class="switch_language">
         <% if I18n.locale == :en %>
-            <%= link_to t('language_to_french'), url_for( :locale => 'fr' ) %>
+            🇫🇷 <%= link_to t('language_to_french'), url_for( :locale => 'fr' ) %>
         <% elsif I18n.locale == :fr %>
-            <%= link_to t('language_to_english'), url_for( :locale => 'en' ) %>
+            🇬🇧 <%= link_to t('language_to_english'), url_for( :locale => 'en' ) %>
         <% end %>
     </div>
 

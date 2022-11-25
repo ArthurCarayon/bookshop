@@ -36,8 +36,9 @@ en:
     site_updated: 'Site was successfully updated.'
   search_title: "Search"
   search_placeholder: "Book title..."
-  home_label: "Return Homepage"
-  categories_label: "Home"
+  home_label: "Homepage"
+  return_home_label: "Back to home"
+  categories_label: "Categories"
   signin_label: "Sign-in"
   signout_label: "Sign-out"
   addbook_label: "Add a post"
@@ -49,6 +50,7 @@ en:
   language_to_french: 'Français'
   language_to_english: 'English'
   sign_in_title: 'Sign in'
+  search_result_title: '%{count} search results'
   by: "By"
   activerecord:
     errors:

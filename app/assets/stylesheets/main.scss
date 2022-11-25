@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5 {
     margin:0 0 8px 0;
     font-family: 'Noto Serif';
     font-weight: bold;
-    color:#885131;
+    color:#2E2A28;
 }
 
 h1 {
@@ -31,7 +31,7 @@ h5 {
 
 a {
     text-decoration: none;
-    color:inherit;
+    color:#9A5833;
 
     &:hover {
         text-decoration: underline;
@@ -133,6 +133,28 @@ ul {
 		}
     }
 
+	.breadcrumb {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+
+		li {
+			display: inline;
+
+			span[aria-current] {
+				color:#2E2A28;
+			}
+
+			&::after {
+				content: ' / ';
+			}
+		}
+
+		ul li:last-child:after {
+			content: '';
+		}
+	}
+
   .header .top_img {
     display: flex;
     justify-content: center;
@@ -153,6 +175,15 @@ ul {
         max-width: 80%;
     }
   }
+
+	.result {
+		.head_result {
+			margin-bottom: 1.5rem;
+		}
+		.result_title {
+			margin-top: 0.25rem;
+		}
+	}
 
     nav {
 
@@ -177,7 +208,20 @@ ul {
             }
         }
 
+		.info {
+			margin-bottom: 2rem;
+			display: block;
+
+			.columnimg {
+				display: block;
+				margin-bottom: 1rem;
+			}
+		}
+
         .admin {
+			border-top:1px solid #dedede;
+			border-bottom:1px solid #dedede;
+			padding:1rem 0;
             margin-top: 32px;
         }
 
@@ -228,8 +272,6 @@ ul {
 
 		#com-form {
 			margin-top:2rem;
-			padding-bottom:2rem;
-			border-bottom: 1px solid #dedede;
 
 			label {
 				margin-bottom: 0.25rem;
@@ -281,7 +323,9 @@ ul {
 		}
 
 		.comments_list {
+			border-top: 1px solid #dedede;
 			padding-top:2rem;
+			margin-top:2rem;
 
 			.a_comment {
 				padding:1rem;

@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   has_many :comments
   has_one_attached :thumbnail
   has_rich_text :description
+  has_one :description, class_name: 'ActionText::RichText', as: :record
   # after_create :search_description
   paginates_per 25
 

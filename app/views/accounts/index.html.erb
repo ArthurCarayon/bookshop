@@ -1,5 +1,6 @@
 <h1>Account Index</h1>
 <h2>Hello, <%= @user.firstname %> </h2>
+<%= link_to t('home_label'), root_path, class: 'return_home' %>
 
 <%= render 'show' %>
 

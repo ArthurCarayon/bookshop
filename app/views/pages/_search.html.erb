@@ -1,13 +1,4 @@
 <%= search_form_for @q, url: root_path do |f| %>
   <h5><%= t('search_title') %></h5>
-  <%= f.search_field :title_cont, placeholder: t('search_placeholder') %>    
-<% end %>
-
-<% if @categories.present? %>
-  <h5><%= t('categories_label') %></h5>
-  <ul>
-    <% @categories.each do |cat| %>
-      <li><%= link_to cat.name, root_path(q: {category_id_eq: cat.id}) %></li>
-    <% end %>
-  </ul>
+  <%= f.search_field :title_or_description_body_cont, placeholder: t('search_placeholder') %>    
 <% end %>
