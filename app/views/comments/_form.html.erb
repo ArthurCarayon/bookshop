@@ -26,6 +26,11 @@
 
       <div>
         <%= form.submit t('general.submit'), id: "btnSubmit", class: 'g-recaptcha, btn primary', data: {'sitekey': '6Lfgwf8iAAAAAM3p4fF-g0H9ShHJA9H8ijb7tpwf', 'callback': 'onSubmit', 'action': 'submit' } %>
+        <div class="disclaimer-captcha">
+          This site is protected by reCAPTCHA and the Google
+          <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+          <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+        </div>
       </div>
     </div>
   </div>

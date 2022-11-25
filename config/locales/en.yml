@@ -33,14 +33,22 @@ en:
   general:
     submit: "Send"
     remove_comment: "Supprimer ce commentaire"
-  search_title: "Looking for"
-  home_label: "Home"
+    site_updated: 'Site was successfully updated.'
+  search_title: "Search"
+  search_placeholder: "Book title..."
+  home_label: "Return Homepage"
   categories_label: "Home"
   signin_label: "Sign-in"
   signout_label: "Sign-out"
-  addbook_label: "Add a book"
+  addbook_label: "Add a post"
   admin_label: "Admin"
   comment_title_label: "Comments"
+  edit_book_label: 'Edit this post'
+  delete_book_label: 'Delete this post'
+  confirm_delete_text: 'Are you sure delete this post?'
+  language_to_french: 'Français'
+  language_to_english: 'English'
+  sign_in_title: 'Sign in'
   by: "By"
   activerecord:
     errors:

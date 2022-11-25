@@ -1,5 +1,10 @@
 <div class="post book">
-  <h2><%= book.title %></h2>
+  
+  <% if request.original_url.include? "books" %>
+    <h2><%= book.title %></h2>
+  <% else %>
+    <h2><%= link_to book.title, book_path(book)  %></h2>
+  <% end %>
 
   <h4>
     <% if book.pricepromo.present? %> 
@@ -20,9 +25,15 @@
   </p>
   <% end %>
 
-  <% unless request.original_url.include? "books" %>
-    <%= book.comments.count %> • <%= link_to 'Add a comment', book_path(book, :anchor => "com") %>
-  <% end %>
+  <div class="post_action"> 
+    <% unless request.original_url.include? "books" %>
+      <%= book.comments.count %> <%= t('comment_title_label') %> • <%= link_to 'Add a comment', book_path(book, :anchor => "com") %>
+      <% if current_user && current_user.admin? %>
+         • <%= link_to t('edit_book_label'), edit_book_path(book) %> • 
+        <%= link_to t('delete_book_label'), book, data: { "turbo-method": :delete, "turbo-confirm": t('confirm_delete_text') } %>
+      <% end %>
+    <% end %>
+  </div>
   
 
 </div>

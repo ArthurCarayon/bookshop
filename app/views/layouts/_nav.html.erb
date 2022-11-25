@@ -1,4 +1,8 @@
 <nav>
+    <% unless current_page?(root_path) %>
+        <%= link_to t('home_label'), root_path, class: 'return_home' %>
+    <% end %>
+    
     <div class="search">
         <%= render "pages/search" %>
     </div>
@@ -12,4 +16,13 @@
         <li><%= link_to t('signout_label'), destroy_user_session_path, 'data-turbo-method': :delete %></li>
     <% end %>
     </ul>
+
+    <div class="switch_language">
+        <% if I18n.locale == :en %>
+            <%= link_to t('language_to_french'), url_for( :locale => 'fr' ) %>
+        <% elsif I18n.locale == :fr %>
+            <%= link_to t('language_to_english'), url_for( :locale => 'en' ) %>
+        <% end %>
+    </div>
+
 </nav>

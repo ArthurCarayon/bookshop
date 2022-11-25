@@ -310,6 +310,7 @@ DEPENDENCIES
   ransack
   rubocop
   rubocop-rails
+  ruby-vips (~> 2.1, >= 2.1.4)
   sassc-rails
   selenium-webdriver
   sprockets-rails

@@ -74,6 +74,7 @@ textarea {
 	padding:0.75rem 1rem;
 	text-align: center;
 	border:0;
+	margin:0;
 	cursor:pointer;
 
 	&.primary {
@@ -110,14 +111,26 @@ ul {
 }
 
 #app {
-    max-width: 64rem;
+    width: 64rem;
     margin: 0 auto;
 
     .grecaptcha-badge { visibility: hidden; display:none; }
 
     .flex_main {
-        display: flex;
         margin-top:2rem;
+		display: flex;
+  		flex-wrap: wrap;
+
+		nav {
+			flex-basis: 16rem;
+			flex-grow: 1;
+		}
+		.content {
+			flex-basis: 0;
+  			flex-grow: 999;
+			min-inline-size: 50%;
+			padding-left: 2rem;
+		}
     }
 
   .header .top_img {
@@ -142,7 +155,15 @@ ul {
   }
 
     nav {
-        max-width: 16.25rem;
+
+		.return_home {
+			display: block;
+			margin-bottom: 1rem;
+
+			&::before {
+				content: '< ';
+			}
+		}
 
         .search {
 
@@ -159,11 +180,13 @@ ul {
         .admin {
             margin-top: 32px;
         }
+
+		.switch_language {
+			margin-top: 0.5rem;
+		}
     }
 
     .content {
-        width: 100%;
-        margin-left:2.5rem;
 
         .post {
             background-color: #FFFCF9;
@@ -177,6 +200,10 @@ ul {
             .attachment {
                 margin:16px 0;
             }
+
+			.post_action {
+				margin-top: 2rem;
+			}
         }
 
         .admin_links {
@@ -227,12 +254,12 @@ ul {
 					display: flex;
 					flex-direction: column;
 					align-items: stretch;
-					flex-grow: 3;
+					flex-basis: 50%;
 					padding-right: 2rem;
 				}
 
 				.author_info {
-					flex-grow: 1;
+					flex-basis: 50%;
 				}
 
 				.field {
@@ -242,6 +269,13 @@ ul {
 
 				#btnSubmit {
 					width: 100%;
+					margin:0;
+				}
+
+				.disclaimer-captcha {
+					font-size: 12px;
+					color:#AFA9A6;
+					margin-top:0.5rem;
 				}
 			}
 		}
@@ -257,6 +291,10 @@ ul {
 
 				p {
 					margin:0 0 0.5rem 0;
+
+					&::first-letter {
+						text-transform: capitalize;
+					}
 				}
 	
 				.author_div {
@@ -264,6 +302,39 @@ ul {
 					color:#6D6662;
 				}
 			}
+		}
+	}
+
+	#sign {
+		background-color: #fff;
+		width: 400px;
+		border-radius: 8px;
+		margin: 0 auto;
+		padding: 4rem;
+
+		h2 {
+			margin-bottom: 0.4rem;
+		}
+
+		form {
+			margin-top: 2rem;
+		}
+
+		.field {
+			margin-bottom: 1rem;
+
+			label {
+				display: block;
+				margin-bottom: 0.2rem;
+			}
+		}
+
+		.remember label {
+			display: inline;
+		}
+
+		.links {
+			display: none;
 		}
 	}
 }
