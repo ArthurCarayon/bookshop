@@ -38,13 +38,22 @@
   <% if book.category.present? %>
   <p>
     <strong>Category:</strong>
-      <%= book.category.name %> 
+      <%= link_to book.category.name, root_path(q: {category_id_eq: book.category.id}) %>
   </p>
   <% end %>
 
   <div class="post_action"> 
     <% unless request.original_url.include? "books" %>
-      <%= book.comments.count %> <%= t('comment_title_label') %> • <%= link_to 'Add a comment', book_path(book, :anchor => "com") %>
+      <% 
+        countCom = book.comments.count || 0
+        labelCom = t("comment_title_label") 
+      %>
+      <% if countCom > 0 %>
+        <%= link_to "#{countCom} #{labelCom}", book_path(book, :anchor => "com") %>
+      <% else %>
+        <%= "#{countCom} #{labelCom}" %>
+      <% end %>
+      • <%= link_to 'Add a comment', book_path(book, :anchor => "com") %>
       <% if current_user && current_user.admin? %>
          • <%= link_to t('edit_book_label'), edit_book_path(book) %> • 
         <%= link_to t('delete_book_label'), book, data: { "turbo-method": :delete, "turbo-confirm": t('confirm_delete_text') } %>
