@@ -1,17 +1,42 @@
 fr:
+  general:
+    submit: "Envoyer"
+    remove_comment: "Supprimer ce commentaire"
+    site_updated: 'Site mise à jour!'
   search_title: "Recherche"
-  home_title: "Accueil"
-  categories_label: "Catégories"
+  search_placeholder: "Titre..."
+  home_label: "Page d'accueil"
+  return_home_label: "Retour accueil"
+  categories_label: "Catégorie"
   signin_label: "Se connecter"
   signout_label: "Se déconnecter"
-  addbook_label: "Ajouter un livre"
-  admin_label: "Admin"
+  addbook_label: "Ajouter un post"
+  admin_label: "Administration"
   comment_title_label: "Commentaires"
+  edit_book_label: 'Editer ce post'
+  delete_book_label: 'Supprimer ce post'
+  confirm_delete_text: 'Es tu sur de supprimer ce post?'
+  language_to_french: 'Français'
+  language_to_english: 'English'
+  sign_in_title: 'Se connecter'
+  search_result_title: '%{count} résultat(s) de recherche'
+  by: "Par"
   activerecord:
-    models:
-      comment: admin user
+    errors:
+      models:
+        comment:
+          attributes:
+            comment:
+              blank: "ne peut pas etre vide"
+      messages:
+        bad_email: "Ton email est invalide"
     attributes:
-      admin/user:
-        comment: "Votre commentaire"
+      comment:
+        comment: "Votre message"
         author: "Votre nom" 
         author_email: "Votre email" 
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      blank: "Ne peut pas etre vide"
+    
