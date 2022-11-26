@@ -4,6 +4,10 @@ body {
     font: normal 1rem Helvetica, Arial, Verdana;
     background-color:#FAF5EE;
     color:#2E2A28;
+
+	&.ov-hidden {
+		overflow: hidden;
+	}
 }
 
 h1, h2, h3, h4, h5 {
@@ -108,6 +112,24 @@ ul {
         padding:2px 0;
         margin-bottom: 4px;
     }
+}
+
+.presentation_image {
+	background-color: #2E2A28;
+	background-position: 50% 50%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	display: none;
+	cursor:pointer;
+
+	&.open {
+		display: block;
+	}
 }
 
 #app {
@@ -263,6 +285,10 @@ ul {
             .attachment {
                 margin:16px 0;
             }
+
+			action-text-attachment {
+				cursor:pointer;
+			}
 
 			.post_action {
 				margin-top: 2rem;

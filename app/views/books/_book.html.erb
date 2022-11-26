@@ -3,9 +3,9 @@
       <ul>
           <li><%= link_to t('home_label'), root_path %></li>
           <% if book.category %>
-            <li><%= link_to book.category.name.capitalize, root_path(q: {category_id_eq: book.category.id}) %></li>
+            <li><%= link_to book.category.name.capitalize.truncate(32), root_path(q: {category_id_eq: book.category.id}) %></li>
           <% end %>
-          <li><span aria-current="page"><%= book.title.capitalize %></span></li>
+          <li><span aria-current="page"><%= book.title.capitalize.truncate(32) %></span></li>
       </ul>
   </nav>
 <% end %>
@@ -13,8 +13,8 @@
 <div class="post book">
 
   <% if request.original_url.include? "books" %>
-    <% title book.title.capitalize %>
-    <% meta_tag :description, book.description %>
+    <% title sanitize book.title.capitalize %>
+    <% meta_tag :description, book.description.to_plain_text %>
   <% end %>
   
   <% if request.original_url.include? "books" %>

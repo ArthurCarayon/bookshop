@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= if content_for?(:title) then yield(:title) + ' | ' end %><%= @sitecontent.title_site %></title>
+    <title><%= if content_for?(:title) then yield(:title) + ' | ' end %><%= sanitize(@sitecontent.title_site) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name='description' content='<%= yield_meta_tag(:description, @sitecontent.description_site) %>' />
+    <meta name='description' content='<%= yield_meta_tag(:description, sanitize(@sitecontent.description_site.to_s)) %>' />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -34,5 +34,11 @@
         </div>
       </div>
     </div>
+
+    <div class="presentation_image">
+
+    </div>
+
+    <script   src="https://code.jquery.com/jquery-3.6.1.slim.min.js"   integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="   crossorigin="anonymous"></script>
   </body>
 </html>
