@@ -13,6 +13,7 @@ fr:
   addbook_label: "Ajouter un post"
   admin_label: "Administration"
   comment_title_label: "Commentaires"
+  add_comment: 'Ajouter commentaire'
   edit_book_label: 'Editer ce post'
   delete_book_label: 'Supprimer ce post'
   confirm_delete_text: 'Es tu sur de supprimer ce post?'

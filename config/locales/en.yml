@@ -44,6 +44,7 @@ en:
   addbook_label: "Add a post"
   admin_label: "Admin"
   comment_title_label: "Comments"
+  add_comment: 'Add comment'
   edit_book_label: 'Edit this post'
   delete_book_label: 'Delete this post'
   confirm_delete_text: 'Are you sure delete this post?'

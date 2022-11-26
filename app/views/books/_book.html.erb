@@ -52,7 +52,7 @@
       <% else %>
         <%= "#{countCom} #{labelCom}" %>
       <% end %>
-      • <%= link_to 'Add a comment', book_path(book, :anchor => "com") %>
+      • <%= link_to t('add_comment'), book_path(book, :anchor => "com") %>
       <% if current_user && current_user.admin? %>
          • <%= link_to t('edit_book_label'), edit_book_path(book) %> • 
         <%= link_to t('delete_book_label'), book, data: { "turbo-method": :delete, "turbo-confirm": t('confirm_delete_text') } %>
