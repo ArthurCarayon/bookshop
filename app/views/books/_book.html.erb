@@ -26,7 +26,7 @@
   <h4>
     <% if book.pricepromo.present? %> 
       <s><%= book.price %>€</s> <%= book.pricepromo %>€
-    <% else %>
+    <% elsif book.price %>
       <%= book.price %>€
     <% end %>
   </h4>
@@ -34,15 +34,14 @@
   <div class="description">
     <%= book.description %>
   </div>
-  
-  <% if book.category.present? %>
-  <p>
-    <strong>Category:</strong>
-      <%= link_to book.category.name, root_path(q: {category_id_eq: book.category.id}) %>
-  </p>
-  <% end %>
 
   <div class="post_action"> 
+    <% if book.category.present? %>
+      <div class="categ">
+        <span>Category:</span>
+        <%= link_to book.category.name, root_path(q: {category_id_eq: book.category.id}) %>
+      </div>
+    <% end %>
     <% unless request.original_url.include? "books" %>
       <% 
         countCom = book.comments.count || 0

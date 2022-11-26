@@ -232,6 +232,25 @@ ul {
 
     .content {
 
+		#addbook {
+			background-color: #FFFCF9;
+            padding:2.5rem;
+            margin-bottom: 2rem;
+			
+			.field {
+				margin-bottom: 1.5rem;
+			}
+
+			.trix-button-row {
+				overflow: initial;
+			}
+
+			.trix-content {
+				background-color:transparent;
+				min-height: 360px;
+			}
+		}
+
         .post {
             background-color: #FFFCF9;
             padding:2.5rem;
@@ -247,6 +266,10 @@ ul {
 
 			.post_action {
 				margin-top: 2rem;
+
+				.categ {
+					margin-bottom: 0.75rem;
+				}
 			}
         }
 
