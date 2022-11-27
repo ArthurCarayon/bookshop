@@ -26,3 +26,16 @@ $(document).keyup(function(e) {
         $('body').removeClass('ov-hidden');
     }
 });
+
+$('.admin .admin_menu li').on('click', function(){
+    if($(this).hasClass('current')){
+        return false;
+    }
+    $('.admin .admin_menu li').removeClass('current');
+    $(this).addClass('current');
+
+    console.log($(this).attr('data-show'));
+
+    $('.block').removeClass('current');
+    $('.block#'+$(this).attr('data-show')).addClass('current');
+});

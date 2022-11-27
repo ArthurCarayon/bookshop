@@ -1,32 +1,30 @@
-<h1>Account#edit</h1>
-
 <%= form_with(model: @user, url: account_path(@user), method: :put) do |form| %>
-    <div>
+    <div class="field">
         <%= form.label :firstname, style: "display: block" %>
         <%= form.text_field :firstname %>
     </div>
-    <div>
+    <div class="field">
         <%= form.label :lastname, style: "display: block" %>
         <%= form.text_field :lastname %>
     </div>
-    <div>
+    <div class="field">
         <%= form.label :email, style: "display: block" %>
         <%= form.email_field :email %>
     </div>
-    <div>
+    <div class="field">
         <%= form.label :password, style: "display: block" %>
         <%= form.password_field :password %>
     </div>
-    <div>
+    <div class="field">
         <%= form.label :password_confirmation, style: "display: block" %>
         <%= form.password_field :password_confirmation %>
     </div>
-    <div>
-        <%= form.label :avatar, style: "display: block" %>
-        <%= form.file_field :avatar %>
+    <div class="field">
+        <%# form.label :avatar, style: "display: block" %>
+        <%# form.file_field :avatar %>
     </div>
 
-    <div>
-        <%= form.submit %>
+    <div class="field">
+        <%= form.submit class: 'btn primary' %>
     </div>
 <% end %>

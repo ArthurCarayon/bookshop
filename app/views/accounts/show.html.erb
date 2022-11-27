@@ -1,21 +1,49 @@
-<h1>Account Index</h1>
-<h2>Hello, <%= @user.firstname %> </h2>
-<%= link_to t('home_label'), root_path, class: 'return_home' %>
+<div class="admin">
+    <h1>Administration</h1>
 
-<%= render 'show' %>
+    <% if current_user.avatar.present? %>
+        <% image_tag @user.avatar.variant(resize_to_limit: [200, 200]) %>
+    <% end %>
+    
+    <%= link_to t('home_label'), root_path, class: 'return_home' %>
 
-<%= render 'sitecontentform', sitecontent: @sitecontent %>
+    <ul class="admin_menu">
+        <li data-show="sitecontent" class="current"><%= t('admin.site_menu') %></li>
+        <li data-show="books"><%= t('admin.book_menu') %></li>
+        <li data-show="categ"><%= t('admin.categ_menu') %></li>
+        <li data-show="perso"><%= t('admin.perso_menu') %></li>
+    </ul>
 
-<% @categories.each do |cat| %>
-    <%= cat.name %> | <%= link_to "X", cat, data: { turbo_method: :delete } %><br>
-<% end %>
-<br>
-Create new category <br>
-<%= render 'categories/form', category: @category %>
-<br><br><br>
+    <div id="sitecontent" class="block current">
+        <%= render 'sitecontentform', sitecontent: @sitecontent %>
+    </div>
 
-<% @books.each do |book| %>
-    <%= link_to book.title, edit_book_path(book) %> <%= book.user_id %> | 
-    <%= link_to "X", book, data: { turbo_method: :delete } %> <br>
-<% end %>
-<%= paginate @books %>
+    <div id="categ" class="block">
+        <% @categories.each do |cat| %>
+            <%= cat.name %> | <%= link_to t('delete_categ_label'), cat, data: { turbo_method: :delete } %><br>
+        <% end %>
+        <div class="newcateg">
+            <h4>Create new category</h4>
+            <%= render 'categories/form', category: @category %>
+        </div>
+    </div>
+
+    <div id="books" class="block">
+        <h3><%= @books.count %> <%= t('post_title') %></h3>
+        <ul>
+        <% @books.each do |book| %>
+            <li>
+                <span><%= link_to book.title, edit_book_path(book) %></span>
+                <span><%= link_to t('delete_book_label'), book, data: { turbo_method: :delete } %></span>
+            </li>
+        <% end %>
+        </ul>
+        <%= paginate @books %>
+    </div>
+
+    <div id="perso" class="block">
+        <%= render 'edit' %>
+    </div>
+
+
+</div>

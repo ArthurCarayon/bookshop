@@ -1,36 +1,48 @@
 <%= form_with(model: sitecontent, url: sitecontent_path(@sitecontent)) do |form| %>
-
-  <div>
+  
+  <div class="field">
     <%= form.label :title_site, style: "display: block" %>
     <%= form.text_field :title_site %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :subtitle_site, style: "display: block" %>
     <%= form.text_field :subtitle_site %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :description_site, style: "display: block" %>
     <%= form.text_field :description_site %>
   </div>
 
-  <div>
+  <div class="field">
+    <%= form.label :headimg, style: "display: block" %>
+    <% if @sitecontent&.headimg.present? %>
+      <div class="img">
+        <span>Image actuel:</span>
+        <%= image_tag(@sitecontent.headimg.variant(resize_to_limit: [400,150])) %>
+      </div>
+    <% end %>
+    <%= form.file_field :headimg %>
+  </div>
+
+  <div class="field">
     <%= form.label :text_rc, style: "display: block" %>
     <%= form.text_area :text_rc %>
   </div>
 
-  <div>
-    <%= form.label :headimg, style: "display: block" %>
-    <%= form.file_field :headimg %>
-  </div>
-
-  <div>
+  <div class="field">
     <%= form.label :columnimg, style: "display: block" %>
+    <% if @sitecontent&.columnimg.present? %>
+      <div class="img">
+        <span>Image actuel:</span>
+        <%= image_tag(@sitecontent.columnimg.variant(resize_to_limit: [400,150])) %>
+      </div>
+    <% end %>
     <%= form.file_field :columnimg %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="field">
+    <%= form.submit class: 'btn primary' %>
   </div>
 <% end %>

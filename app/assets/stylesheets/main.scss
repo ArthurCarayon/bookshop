@@ -430,4 +430,69 @@ ul {
 			display: none;
 		}
 	}
+
+	.content .admin {
+
+		.admin_menu {
+			display: flex;
+			flex-direction: row;
+			margin-top:2rem;
+
+			li {
+				margin-left: 2rem;
+				cursor: pointer;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&.current {
+					border-bottom: 2px solid #9A5833;
+					display: block;
+					padding-bottom: 0.35rem;
+					color:#9A5833;
+				}
+			}
+		}
+
+		.block {
+			background-color: #fff;
+			border-radius: 8px;
+			padding:2rem;
+			display: none;
+
+			&.current {
+				display: block;
+			}
+
+			.field {
+				margin-bottom: 1.5rem;
+
+				label {
+					margin-bottom: 0.25rem;
+				}
+			}
+
+			&#books {
+				ul {
+					li {
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between; 
+						padding:0.75rem 1rem;
+
+						&:nth-child(odd){
+							background-color:#F9F6F2 ;
+						}
+					}
+				}
+			}
+
+			&#categ {
+				.newcateg {
+					margin-top: 2rem;
+				}
+			}
+		}
+	}
 }

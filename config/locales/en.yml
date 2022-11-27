@@ -39,6 +39,8 @@ en:
   home_label: "Homepage"
   return_home_label: "Back to home"
   categories_label: "Categories"
+  delete_categ_label: "Delete category"
+  post_title: "Posts"
   signin_label: "Sign-in"
   signout_label: "Sign-out"
   addbook_label: "Add a post"
@@ -71,4 +73,16 @@ en:
     format: "%{attribute} %{message}"
     messages:
       blank: "that's blank"
-    
+  helpers:
+    submit:
+      sitecontent:
+        update: "Update website" 
+    label:
+      sitecontent:
+        headimg: "Image en tete"
+        columnimg: "Image colone gauche"
+        title_site: "Titre du site"
+        subtitle_site: "Sous titre du site"
+        text_rc: "Texte colone de gauche"
+        description_site: "Description générale du site"
+        
