@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name='description' content='<%= yield_meta_tag(:description, sanitize(@sitecontent.description_site.to_s)) %>' />
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag asset_path('bookico.ico') %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
